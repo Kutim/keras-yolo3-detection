@@ -239,7 +239,7 @@ def _main(args):
     if len(out_index)==0: out_index.append(len(all_layers)-1)
     model = Model(inputs=input_layer, outputs=[all_layers[i] for i in out_index])
     print(model.summary())
-    plot_model(model, to_file='./model_data/model.png', show_shapes=True, show_layer_names=True)  # 网络图
+    #plot_model(model, to_file='./model_data/model.png', show_shapes=True, show_layer_names=True)  # 网络图
     if args.weights_only:
         model.save_weights('{}'.format(output_path))
         print('Saved Keras weights to {}'.format(output_path))
