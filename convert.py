@@ -51,7 +51,7 @@ def unique_config_sections(config_file):
                 _section = section + '_' + str(section_counters[section])
                 section_counters[section] += 1
                 line = line.replace(section, _section)
-            output_stream.write(unicode(line))
+            output_stream.write(str(line))
     output_stream.seek(0)
     return output_stream
 
