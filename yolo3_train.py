@@ -33,8 +33,8 @@ def _main():
 
     log_dir = 'logs/004/'  # 日志文件夹
 
-    # pretrained_path = 'model_data/yolo_weights.h5'  # 预训练模型
-    pretrained_path = 'logs/003/ep074-loss26.535-val_loss27.370.h5'  # 预训练模型
+    pretrained_path = 'model_data/yolo_weights.h5'  # 预训练模型
+    #pretrained_path = 'logs/003/ep074-loss26.535-val_loss27.370.h5'  # 预训练模型
     anchors_path = 'configs/yolo_anchors.txt'  # anchors
 
     class_names = get_classes(classes_path)  # 类别列表
@@ -155,7 +155,7 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
                                    'ignore_thresh': 0.5}
                         )(model_body.output + y_true)
     model = Model(inputs=[model_body.input] + y_true, outputs=model_loss)  # 模型，inputs和outputs
-    plot_model(model, to_file=os.path.join('model_data', 'model.png'), show_shapes=True, show_layer_names=True)
+    # plot_model(model, to_file=os.path.join('model_data', 'model.png'), show_shapes=True, show_layer_names=True)
     model.summary()
 
     return model
